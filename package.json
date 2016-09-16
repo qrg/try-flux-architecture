@@ -4,6 +4,7 @@
   "description": "just learn flux architecture",
   "main": "index.js",
   "scripts": {
+    "start": "npm run watch",
     "build": "browserify src/entry.js -o public/bundle.js -t [ babelify ]",
     "watch": "npm run build && open public/index.html; watchify src/entry.js -o public/bundle.js -t [ babelify ] -v",
     "test": "ava --verbose && npm run lint",
@@ -24,7 +25,8 @@
     "watchify": "^3.7.0"
   },
   "dependencies": {
-    "react": "^15.3.1"
+    "react": "^15.3.1",
+    "react-dom": "^15.3.1"
   },
   "babel": {
     "presets": [
