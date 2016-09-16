@@ -6,7 +6,8 @@
   "scripts": {
     "build": "browserify src/entry.js -o public/bundle.js -t [ babelify ]",
     "watch": "npm run build && open public/index.html; watchify src/entry.js -o public/bundle.js -t [ babelify ] -v",
-    "test": "ava --verbose"
+    "test": "ava --verbose && npm run lint",
+    "lint": "eslint -c ./.eslintrc.yml \"./src/**/*.js\" \"./test/**/*.js\""
   },
   "author": "qrg",
   "license": "MIT",
@@ -17,6 +18,8 @@
     "babel-preset-react": "^6.11.1",
     "babelify": "^7.3.0",
     "browserify": "^13.1.0",
+    "eslint": "^3.5.0",
+    "eslint-plugin-react": "^6.2.2",
     "ncp": "^2.0.0",
     "open": "0.0.5",
     "watchify": "^3.7.0"
