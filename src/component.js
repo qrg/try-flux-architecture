@@ -22,6 +22,7 @@ export default class Component extends React.Component {
   }
 
   _onChange() {
+    console.trace();
     this.setState({count: store.getCount()});
   }
 
