@@ -5,8 +5,9 @@ export default class ActionCreator {
     this.dispatcher = dispatcher;
   }
 
-  countUp(data) {
+  count(data) {
     // "Emit" event ----> Store
-    this.dispatcher.emit('countUp', data);
+    this.dispatcher.emit('count', data);
   }
+
 }

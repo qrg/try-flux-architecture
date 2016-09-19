@@ -12,8 +12,8 @@ test.beforeEach(() => {
   store = new Store(dispatcher);
 });
 
-test.cb('#onCountUp should emit `CHANGE` event', t => {
+test.cb('#onCount should emit `CHANGE` event', t => {
   const expected = 8;
   store.on('CHANGE', t.end);
-  dispatcher.emit('countUp', expected);
+  dispatcher.emit('count', expected);
 });

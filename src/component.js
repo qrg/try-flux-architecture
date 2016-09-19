@@ -13,7 +13,9 @@ export default class Component extends React.Component {
   constructor(props) {
     super(props);
     this.state = {count: store.getCount()};
-    this.tick = this.tick.bind(this);
+    this.countUp = this.countUp.bind(this);
+    this.countDown = this.countDown.bind(this);
+    this.countReset = this.countReset.bind(this);
 
     // <- Observe store's change
     store.on('CHANGE', () => {
@@ -26,15 +28,31 @@ export default class Component extends React.Component {
     this.setState({count: store.getCount()});
   }
 
-  tick() {
-    action.countUp(this.state.count + 1);
+  countUp() {
+    action.count(this.state.count + 1);
+  }
+
+  countDown() {
+    action.count(this.state.count - 1);
+  }
+
+  countReset() {
+    action.count(0);
   }
 
   render() {
     return (
       <div className='counter'>
-        <button onClick={this.tick} className='button is-outlined is-primary is-medium'>
-          Count Up
+        <button onClick={this.countUp} className='button is-outlined is-primary is-medium'>
+          Up
+        </button>
+
+        <button onClick={this.countDown} className='button is-outlined is-primary is-medium'>
+          Down
+        </button>
+
+        <button onClick={this.countReset} className='button is-outlined is-danger is-medium'>
+          Reset
         </button>
         <span className='tag is-primary is-large'>{this.state.count}</span>
       </div>

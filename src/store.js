@@ -8,14 +8,14 @@ export default class Store extends EventEmitter {
     this._count = 0;
 
     // <--- observe event.
-    dispatcher.on('countUp', count => this.onCountUp(count));
+    dispatcher.on('count', count => this.onCount(count));
   }
 
   getCount() {
     return this._count;
   }
 
-  onCountUp(count) {
+  onCount(count) {
     if (this._count === count) return;
 
     this._count = count;

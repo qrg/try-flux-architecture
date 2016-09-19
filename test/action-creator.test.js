@@ -12,11 +12,11 @@ test.beforeEach(() => {
   action = new ActionCreator(dispatcher);
 });
 
-test.cb('#countUp should emit `countUp` event', t => {
+test.cb('#count should emit `count` event', t => {
   const expected = 8;
-  dispatcher.on('countUp', count => {
+  dispatcher.on('count', count => {
     t.is(count, expected);
     t.end();
   });
-  action.countUp(expected);
+  action.count(expected);
 });
